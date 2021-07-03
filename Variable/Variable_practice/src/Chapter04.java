@@ -1,7 +1,7 @@
 
 public class Chapter04 {
 	
-	public static void main(String[] arg) {
+	public static void main(String[] args) {
 		String name = "Takuya Endo";
 		System.out.println(name);
 		
