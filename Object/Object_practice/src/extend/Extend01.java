@@ -29,5 +29,5 @@ public class Extend01 {
 	public static void printName(Human human) {
 		System.out.println("Humnaクラスのメソッド：名前は" + human.getName());
 	}
-
+										
 }
