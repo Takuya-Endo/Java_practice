@@ -11,6 +11,7 @@ public class Student extends Human {
 		
 	}
 	
+	@Override
 	public String getProfile() {
 		
 		String profile = "年齢は" + super.age + "です。";

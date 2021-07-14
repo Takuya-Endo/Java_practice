@@ -9,6 +9,7 @@ public class Employee extends Human {
 		this.department = department;
 	}
 	
+	@Override
 	public String getProfile() {
 		
 		String profile = "年齢は" + this.age + "です。";
