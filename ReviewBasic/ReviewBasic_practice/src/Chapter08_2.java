@@ -9,6 +9,12 @@ public class Chapter08_2 {
 			++while_number;
 		}
 		
+		
+		int[] array = {10, 20, 30, 40};
+		for (int element_number = 0; element_number < array.length; element_number++) {
+			System.out.println(array[element_number]);
+		}
+		
 	}
 
 }
