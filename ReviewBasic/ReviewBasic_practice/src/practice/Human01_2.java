@@ -17,6 +17,8 @@ public class Human01_2 {
     public Human01_2(String name, int age) {
         this.name = name;
         this.age = age;
+    //this→自分自身のインスタンスを指す変数を扱う
+    //this→自分自身のインスタンスのフィールドやメソッドであることを明示的にする
     }
     
 }

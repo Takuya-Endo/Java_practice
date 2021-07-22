@@ -20,8 +20,12 @@ public class ClassMethod01_2 {
         
         
         
-        Human01_2 sato = new Human01_2("佐藤", 25); //Human01_2クラスのインスタンスを生成
+        Human01_2 sato = new Human01_2("佐藤", 25);
         System.out.println("名前は" + sato.name + "で、年齢は" + sato.age + "です。");
+        //Human01_2クラスのインスタンスsatoを作成
+        //引数ありのコンストラクタHuman01_2("佐藤", 25)を使う
+        //Human01_2クラスのメンバ変数nameとage（thisで明示されている）に引数を代入するコンストラクタが用意されている
+        //コンストラクタの引数を代入して実行
     }
 
 }
