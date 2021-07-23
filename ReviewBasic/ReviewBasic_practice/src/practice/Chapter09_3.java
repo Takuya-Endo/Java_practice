@@ -7,9 +7,13 @@ public class Chapter09_3 {
         double fuelCost = 12.5; // 燃費（Km/L）
         double fuelAmount = 55.0; // 残量（L）
 
-        Car car = new Car(fuelCost, fuelAmount);
-
+        Car_3 car = new Car_3(fuelCost, fuelAmount);
+//        System.out.println(car.fuelCost);
+//        System.out.println(car.fuelAmount);
+        
         car.move(20);
+//        System.out.println(car.fuelAmount);
+//        System.out.println(fuelAmount);
         System.out.println("残量は、" + car.getFuelAmount() + "です");
     }
 

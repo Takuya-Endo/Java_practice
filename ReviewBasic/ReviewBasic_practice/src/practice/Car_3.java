@@ -2,15 +2,22 @@ package practice;
 
 public class Car_3 {
 	
-    private double fuelCost; // 燃費（Km/L）
-    private double fuelAmount; // 残量（L）
+    public double fuelCost; // 燃費（Km/L）
+    public double fuelAmount; // 残量（L）
 
-    // コンストラクタを作成
+    public Car_3(double fuelCost, double fuelAmount) {
+    	this.fuelCost = fuelCost;
+    	this.fuelAmount = fuelAmount;
+    }
 
-    // moveメソッド
-    // ・"xx km 走ります"を出力
-    // ・残量を計算
+    public void move(int distance) {
+    	System.out.println(distance + "km走ります");
+    	this.fuelAmount -= distance / this.fuelCost;
+    }
 
     // fuelAmountを取得するメソッドを作成
+    public double getFuelAmount() {
+    	return this.fuelAmount;
+    }
 
 }
