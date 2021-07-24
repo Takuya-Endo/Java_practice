@@ -8,6 +8,7 @@ public class Ex_Student_2 extends Ex_Human_2 {
 
     public Ex_Student_2(String name, int age, int score) {
         super(name, age);
+        //スーパークラスのインスタンスを指す
         this.score = score;
     }
 
