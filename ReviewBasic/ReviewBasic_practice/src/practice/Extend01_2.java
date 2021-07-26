@@ -15,7 +15,9 @@ public class Extend01_2 {
         //Ex_Student_2のコンストラクタのうち、nameとageはEx_Human_2から継承
         //scoreはEx_Student_2のコンストラクタで新たに作成
         
-        Human human = new Employee("田中", 28, "システム部");
+        
+        //アップキャスト
+        Ex_Human_2 human = new Ex_Employee_2("田中", 28, "システム部");
         System.out.println("Humanクラスのメソッド：名前は、" + human.getName());
 
         Employee tanaka = (Employee) human;
