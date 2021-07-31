@@ -3,11 +3,14 @@ package practice;
 public class Polymorphism02_2 {
 	
 	public static void main(String[] args) {
-        // スーパークラス（Humanクラス）の変数にインスタンスを代入
-        Human human = new Student("佐藤", 17, 70);
-
+        
+        Po_Human_2 human = new Po_Student_2("佐藤", 17, 70);
+        //Po_Human_2クラスを継承したPo_Student_2クラスのコンストラクタでhumanインスタンスを生成
+        //Po_Human_2クラスの変数にPo_Student_2クラスのインスタンスを代入＝アップキャスト
+        
+        
         // Polymorphism02インスタンスを生成
-        Polymorphism02 polymorphism = new Polymorphism02();
+        Polymorphism02_2 polymorphism = new Polymorphism02_2();
 
         // printNameメソッド（引数なし）の呼び出し
         polymorphism.printName();
@@ -18,21 +21,23 @@ public class Polymorphism02_2 {
         // printNameメソッド（引数がHumanクラス）の呼び出し
         polymorphism.printName(human);
     }
-
-    public void printName() {
-        System.out.println("中川です。");
-    }
-
-    public void printName(String name) {
-        System.out.println(name + "です。");
-    }
-
-    public void printName(String name1, String name2) {
-        System.out.println(name1 + "と" + name2 + "です。");
-    }
-
-    public void printName(Human human) {
-        System.out.println(human.getName() + "です。");
-    }
+	
+	//	↑
+	//引数の型or数or並び順の異なるメソッドを複数定義することが可能 ＝ オーバーロード
+	//	↑
+	    public void printName() {
+	        System.out.println("中川です。");
+	    }
+	    public void printName(String name) {
+	        System.out.println(name + "です。");
+	    }
+	    //引数の型は同じでも数が異なる
+	    public void printName(String name1, String name2) {
+	        System.out.println(name1 + "と" + name2 + "です。");
+	    }
+	    //引数の数は同じでも型が異なる
+	    public void printName(Po_Human_2 human) {
+	        System.out.println(human.getName() + "です。");
+	    }
 
 }
