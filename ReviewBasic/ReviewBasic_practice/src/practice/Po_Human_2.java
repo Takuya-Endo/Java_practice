@@ -9,7 +9,8 @@ public class Po_Human_2 {
         this.name = name;
         this.age = age;
     }
-
+    
+    //↓finalはオーバーライド禁止
     final public String getName() {
         return this.name;
     }
