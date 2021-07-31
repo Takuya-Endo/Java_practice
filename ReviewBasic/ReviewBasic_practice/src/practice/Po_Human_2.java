@@ -5,7 +5,7 @@ public class Po_Human_2 {
 	private String name;
     protected int age;
 
-    public Human(String name, int age) {
+    public Po_Human_2(String name, int age) {
         this.name = name;
         this.age = age;
     }
