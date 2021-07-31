@@ -10,7 +10,7 @@ public class Chapter13_2 {
         mobilePhone.powerOff();
 
         In_FlyingPhone_2 flyingPhone = new In_FlyingPhone_2(5);
-        flyingPhone.fly();
+        flyingPhone.fly();	
         Chapter13_2.staticCall(flyingPhone, "000-1111-2222");
         flyingPhone.powerOff();
     }
