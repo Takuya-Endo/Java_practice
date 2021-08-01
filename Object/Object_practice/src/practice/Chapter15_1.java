@@ -22,21 +22,28 @@ public class Chapter15_1 {
     
 	// ユークリッドの互除法で最大公約数を計算するメソッド
 	static int gcd(int a, int b) {
-        
-		int dividend = a;	//割られる数
-		int divisor = b;	//割る数
-		int remainder = a % b;		//余り
+			
+			//余りが0になるまでwhileで繰り返し
+			//		int dividend = a;	//割られる数
+			//		int divisor = b;	//割る数
+			//		int remainder = a % b;		//余り
+			//		
+			//		while(remainder > 0) {
+			//			
+			//			dividend = divisor;				//割る数 が次の計算では 割られる数 になる
+			//			divisor = remainder;			//余り 　が次の計算では 割る数　　 になる
+			//			
+			//			remainder = dividend % divisor;	//余りを計算
+			//			
+			//		}
+			//		
+			//		return divisor;
 		
-		while(remainder > 0) {
-			
-			dividend = divisor;				//割る数 が次の計算では 割られる数 になる
-			divisor = remainder;			//余り 　が次の計算では 割る数　　 になる
-			
-			remainder = dividend % divisor;	//余りを計算
-			
+		//再帰処理で繰り返し
+		if (a % b == 0) {
+			return b;
 		}
-		
-		return divisor;
+		return gcd(b, a % b);
 		
     }
 
