@@ -19,6 +19,11 @@ public class Chapter15_2 {
         // Java7以降に追加された「try-with-resources」文で処理
         // Filesクラスを使用して、BufferedReaderクラスのインスタンスを生成
         // Filesクラスを使用して、BufferedWriterクラスのインスタンスを生成
+        
+        //try-catch-finally 例外処理
+        //try：例外が発生する可能性がある処理（例外が発生しなければ通常に行われるべき処理を書く）
+        //catch：例外が発生した場合に行われる処理
+        //finally：例外発生の有無に関わらず必ず実行する処理
         try (・・・) {
 
             String line = null;
@@ -33,10 +38,9 @@ public class Chapter15_2 {
                 ・・・
             }
 
-        // 例外処理を記述
-        // printStackTraceで例外を出力
-        } catch (・・・)  {
-            ・・・
+        //resourceディレクトリにinput.txtファイルが存在しなかった場合の例外処理
+        } catch (FileNotFoundException e) {
+            ・・・// printStackTraceで例外を出力
         } finally {
             System.out.println("出力処理終了");
         }
