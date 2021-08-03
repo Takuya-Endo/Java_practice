@@ -25,6 +25,10 @@ public class Chapter15_2 {
         //catch：例外が発生した場合に行われる処理
         //finally：例外発生の有無に関わらず必ず実行する処理
         try (・・・) {
+        	//↑
+        	//try-with-resourcesでは try { でなく try (---) { とし、
+        	//()内にクローズの対象となるリソースの生成処理を記述することで、
+        	//finallyブロックでclose()を呼び出さなくても自動でクローズされる。
 
             String line = null;
             // BufferedReader.readLineメソッドを使用して、1行づつ処理
