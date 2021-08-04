@@ -26,7 +26,12 @@ public class Chapter15_2 {
         //try：例外が発生する可能性がある処理（例外が発生しなければ通常に行われるべき処理を書く）
         //catch：例外が発生した場合に行われる処理
         //finally：例外発生の有無に関わらず必ず実行する処理
-        try (FileReader fileReader = new FileReader("resources/input.txt"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+        
+        
+        //回答
+//      try (FileReader fileReader = new FileReader("resources/input.txt"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+        //解答
+        try (BufferedReader reader = Files.newBufferedReader(inputPath); BufferedWriter writer = Files.newBufferedWriter(outputPath);) {
         	//↑
         	//try-with-resourcesでは try { でなく try (---) { とし、
         	//()内にクローズの対象となるリソースの生成処理を記述することで、
