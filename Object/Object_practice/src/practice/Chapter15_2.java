@@ -43,7 +43,7 @@ public class Chapter15_2 {
             }
 
         //resourceディレクトリにinput.txtファイルが存在しなかった場合の例外処理
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             System.out.println("出力処理終了");
