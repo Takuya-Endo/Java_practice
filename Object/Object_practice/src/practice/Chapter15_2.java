@@ -15,18 +15,11 @@ public class Chapter15_2 {
         // PathクラスのインスタンスをFileSystem.getPathメソッドで生成
         Path inputPath = fs.getPath("resources/input.txt");
         Path outputPath = fs.getPath("resources/output.txt");
-
-        // Java7以降に追加された「try-with-resources」文で処理
-        // Filesクラスを使用して、BufferedReaderクラスのインスタンスを生成
-        // Filesクラスを使用して、BufferedWriterクラスのインスタンスを生成
-        
-        
         
         //try-catch-finally 例外処理
         //try：例外が発生する可能性がある処理（例外が発生しなければ通常に行われるべき処理を書く）
         //catch：例外が発生した場合に行われる処理
         //finally：例外発生の有無に関わらず必ず実行する処理
-        
         
         //回答
 //      try (FileReader fileReader = new FileReader("resources/input.txt"); BufferedReader bufferedReader = new BufferedReader(fileReader)) {
@@ -51,7 +44,7 @@ public class Chapter15_2 {
 
         //resourceディレクトリにinput.txtファイルが存在しなかった場合の例外処理
         } catch (FileNotFoundException e) {
-            ・・・// printStackTraceで例外を出力
+            e.printStackTrace();
         } finally {
             System.out.println("出力処理終了");
         }
