@@ -33,13 +33,16 @@ public class Chapter15_2 {
             String line = null;
             // BufferedReader.readLineメソッドを使用して、1行づつ処理
             // 読み込む行がなくなるまでループ
-            while (・・・) {
+            while (line != null) {
+            	
+            	System.out.println(line);            	
+            	
                 // 文字数が5以外の場合はスキップ
-                ・・・
+                //・・・
                 // 読み込んだ1行を出力
-                ・・・
+                //・・・
                 // 改行がついてないので改行を出力
-                ・・・
+                //・・・
             }
 
         //resourceディレクトリにinput.txtファイルが存在しなかった場合の例外処理
