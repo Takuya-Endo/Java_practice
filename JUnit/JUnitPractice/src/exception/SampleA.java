@@ -10,7 +10,7 @@ public class SampleA {
 		this.array[2] = 3;
 	}
 	
-	public void methodA(int number) {
+	public void methodA(int number) throws ArrayIndexOutOfBoundsException {
 		
 		try {
 			
@@ -18,7 +18,8 @@ public class SampleA {
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
 			
-			e.printStackTrace();
+//			e.printStackTrace();
+			throw e;
 			
 		}
 		
