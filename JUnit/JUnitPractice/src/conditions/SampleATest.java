@@ -12,21 +12,57 @@ class SampleATest {
 
 	private SampleA sampleA = new SampleA();
 
+//	@Test
+//	void testMethod() {
+//		
+//		String actual = sampleA.method("");
+//		String expected = "strは空文字です";
+//		assertEquals(expected, actual);
+//		
+//		actual = sampleA.method("aaa");
+//		expected = "strは空文字ではありません";
+//		assertEquals(expected, actual);
+//		
+//		actual = sampleA.method(null);
+//		expected = "strは空文字です";
+//		assertEquals(expected, actual);
+//		
+//	}
+	
 	@Test
-	void testMethod() {
+	void testMethod1() throws Exception {
 		
 		String actual = sampleA.method("");
 		String expected = "strは空文字です";
 		assertEquals(expected, actual);
 		
-		actual = sampleA.method("aaa");
-		expected = "strは空文字ではありません";
-		assertEquals(expected, actual);
+	}
+	
+	@Test
+	void testMethod2() throws Exception {
 		
-		actual = sampleA.method(null);
-		expected = "strは空文字です";
+		String actual = sampleA.method("aaa");
+		String expected = "strは空文字ではありません";
 		assertEquals(expected, actual);
 		
 	}
-
+	
+	@Test
+	void testMethod() {
+		
+		try {
+			
+			sampleA.method(null);
+			fail("テスト失敗");
+			
+		} catch (Exception e) {
+			
+			String actual = e.getMessage();
+			String expected = "nullpo";
+			assertEquals(expected, actual);
+			
+		}
+		
+	}
+	
 }

@@ -4,7 +4,11 @@ import java.util.Objects;
 
 public class SampleA {
 	
-	public String method(String str) {
+	public String method(String str) throws Exception {
+		
+		if (Objects.isNull(str)) {
+			throw new Exception("nullpo");
+		}
 		
 		if (str.equals("")) {
 			return "strは空文字です";
