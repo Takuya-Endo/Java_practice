@@ -18,12 +18,17 @@ public class SampleMain {
 		System.out.println(sampleClass.num);
 		System.out.println(sampleClass.str);
 		sampleMain.setInt(sampleClass.num); //プリミティブ型は引数に渡しても、コピーが渡って処理されるだけ→元のフィールドは書き換わらない。
-		sampleMain.setStr(sampleClass.str); //String型もプリミティブ型を同じ扱い
+		sampleMain.setStr(sampleClass.str); //String型もプリミティブ型を同じ扱い（↓immutableなオブジェクトのため）
 		System.out.println(sampleClass.num);
 		System.out.println(sampleClass.str);
 		sampleMain.setClass(sampleClass); //オブジェクトが渡されると、参照がコピーされてわたるので、元のフィールドも書き換わる→Object objA = objBの挙動に近い？
 		System.out.println(sampleClass.num);
 		System.out.println(sampleClass.str);
+		
+		String strA = "TestA, TestB";
+		sampleMain.replaceStringA_1(strA); //Stringはimmutableオブジェクトのため置き換わらない。↑の例も参照
+		System.out.println(strA);
+		System.out.println(sampleMain.replaceStringA_2(strA)); //戻り値であれば、別のオブジェクトとしてclone？が作られる。（replaceAllメソッド）
 		
 	}
 	
@@ -36,6 +41,13 @@ public class SampleMain {
 	private void setClass(SampleClass sampleClass) {
 		sampleClass.num += 10;
 		sampleClass.str += "を書き換えました";
+	}
+	
+	private void replaceStringA_1(String str) {
+		str.replaceAll("TestA", "TestB");
+	}
+	private String replaceStringA_2(String str) {
+		return str.replaceAll("TestA", "TestB");
 	}
 
 }
