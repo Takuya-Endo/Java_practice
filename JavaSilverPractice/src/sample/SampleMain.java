@@ -9,7 +9,7 @@ public class SampleMain {
 		
 		float valueA = 3.14f;
 		String valueB = "true";
-		System.out.println(valueA + valueB);
+		System.out.println(valueA + " " + valueB);
 		
 		System.out.println(10 + 20 + "30" + 40);
 		
