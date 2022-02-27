@@ -5,7 +5,7 @@ public class SampleClass {
 //	int goto = 0; //「goto」は予約後のため使用不可
 	
 	int num = 0;
-	String str = "";
+	String str = "文字列";
 	
 	//初期化子：全てのコンストラクタの前に処理される。{}だけ書くと、共通のコンストラクタのような物。
 	{ System.out.println("初期化子"); }
