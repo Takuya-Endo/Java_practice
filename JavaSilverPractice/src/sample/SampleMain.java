@@ -44,6 +44,23 @@ public class SampleMain {
 		String valueG = valueE + valueF;
 		System.out.println(valueG);
 		
+		StringBuilder stringBuilderA = new StringBuilder();
+		System.out.println(stringBuilderA.capacity()); //16
+		StringBuilder stringBuilderB = new StringBuilder("ABCDE");
+		System.out.println(stringBuilderB.capacity()); //21
+		stringBuilderA.append("A").append("B").append("C").append("D").append("E");
+		System.out.println(stringBuilderA.capacity()); //16
+		stringBuilderA.append("ABCDE");
+		System.out.println(stringBuilderA.capacity()); //16
+		stringBuilderB.append("ABCDEFGHIJKLMNOPQRSTUVWXYZ"); //26文字
+		System.out.println(stringBuilderB.capacity()); //44
+		StringBuilder stringBuilderC = new StringBuilder();
+		stringBuilderC.append("ABCDEFGHIJKLMNOP"); //16文字
+		System.out.println(stringBuilderC.capacity()); //16
+		StringBuilder stringBuilderD = new StringBuilder();
+		stringBuilderD.append("ABCDEFGHIJKLMNOPQ"); //17文字
+		System.out.println(stringBuilderD.capacity()); //34
+		
 	}
 	
 	private void setInt(int num) {
