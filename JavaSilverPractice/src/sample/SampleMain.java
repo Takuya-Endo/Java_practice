@@ -36,6 +36,14 @@ public class SampleMain {
 //		System.out.println(valueD += "20"); //これだけコンパイルエラー
 		System.out.println(valueD += 30);
 		
+		String valueE = null;
+//		valueE.equals("null"); //←ここではNullPointerException
+		System.out.println(valueE);
+		String valueF = "null";
+		System.out.println(valueF);
+		String valueG = valueE + valueF;
+		System.out.println(valueG);
+		
 	}
 	
 	private void setInt(int num) {
