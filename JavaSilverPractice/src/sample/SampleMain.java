@@ -61,6 +61,16 @@ public class SampleMain {
 		stringBuilderD.append("ABCDEFGHIJKLMNOPQ"); //17文字
 		System.out.println(stringBuilderD.capacity()); //34
 		
+		//拡張for文の中で生成されるのは一時変数であるため、そこに値を代入しても、元の配列の要素は書き換わらない。
+		SampleClass[] samples = {new SampleClass("A"), new SampleClass("B"), new SampleClass("C")};
+		for (SampleClass sample : samples) {
+			sample = new SampleClass("D");
+			System.out.println(sample.str);
+		}
+		for (SampleClass sample : samples) {
+			System.out.println(sample.str);
+		}
+		
 	}
 	
 	private void setInt(int num) {

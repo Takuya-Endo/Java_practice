@@ -23,6 +23,7 @@ public class SampleClass {
 //	}
 	SampleClass(String str) {
 		this();
+		this.str = str;
 		System.out.println(str);
 	}
 
