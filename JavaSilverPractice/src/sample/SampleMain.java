@@ -71,6 +71,18 @@ public class SampleMain {
 			System.out.println(sample.str);
 		}
 		
+		SampleClass sampleA = new SampleClass();
+		SampleClass sampleB = new SubSampleClass();
+		SubSampleClass sampleC = new SubSampleClass();
+		System.out.println(sampleA.str); //親のフィールド
+		System.out.println(sampleB.str); //親のフィールド
+		System.out.println(sampleC.str); //子のフィールド
+		sampleA.printStr(); //親のフィールド
+		sampleB.printStr(); //親のフィールド
+		sampleC.printStr(); //親のフィールド
+		sampleC.printStrSub(); //子のフィールド
+		
+		
 	}
 	
 	private void setInt(int num) {

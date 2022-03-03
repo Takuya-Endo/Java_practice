@@ -26,5 +26,9 @@ public class SampleClass {
 		this.str = str;
 		System.out.println(str);
 	}
+	
+	public void printStr() {
+		System.out.println(this.str);
+	}
 
 }
