@@ -29,14 +29,30 @@ public class SampleMain {
 		
 //		sampleClassPolymorphism = sampleMain.mainPrivateFunction("TestString");
 		sampleClassPolymorphism = sampleMain::mainPrivateFunction;
-		sampleClassPolymorphism.sampleFunction("TestString");
+		value = sampleClassPolymorphism.sampleFunction("TestString");
 		System.out.println(value);
 		
 		value = SampleMain.mainStaticFunction("TestString");
 		System.out.println(value);
 		
 		sampleClassPolymorphism = SampleMain::mainStaticFunction;
-		sampleClassPolymorphism.sampleFunction("TestString");
+		value = sampleClassPolymorphism.sampleFunction("TestString");
+		System.out.println(value);
+		
+		sampleClassPolymorphism = /* sampleFunction */ (String argument) -> {
+			return argument + "（ラムダ式書式1のメソッドを利用）";
+		};
+		value = sampleClassPolymorphism.sampleFunction("TestString");
+		System.out.println(value);
+
+		sampleClassPolymorphism = /* sampleFunction */ argument -> {
+			return argument + "（ラムダ式書式2のメソッドを利用）";
+		};
+		value = sampleClassPolymorphism.sampleFunction("TestString");
+		System.out.println(value);
+
+		sampleClassPolymorphism = /* sampleFunction */ argument -> argument + "（ラムダ式書式3のメソッドを利用）";
+		value = sampleClassPolymorphism.sampleFunction("TestString");
 		System.out.println(value);
 		
 	}
