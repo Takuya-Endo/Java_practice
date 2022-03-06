@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.ArrayList;
+
 public class SampleMain {
 
 	public static void main(String[] args) {
@@ -82,6 +84,15 @@ public class SampleMain {
 		sampleC.printStr(); //親のフィールド
 		sampleC.printStrSub(); //子のフィールド
 		
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("A");
+		list.add("B");
+		list.add("C");
+		list.add("D");
+		for (String element : list) {
+			System.out.println(element);
+			list.remove("C"); //java.util.ConcurrentModificationException
+		}
 		
 	}
 	
