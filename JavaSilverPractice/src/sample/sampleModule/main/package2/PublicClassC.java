@@ -1,4 +1,4 @@
-package sample.module.paclage2;
+package sample.sampleModule.main.package2;
 
 public class PublicClassC {
 	

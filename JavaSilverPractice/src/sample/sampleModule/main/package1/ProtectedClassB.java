@@ -1,6 +1,6 @@
-package sample.module.paclage1;
+package sample.sampleModule.main.package1;
 
-import sample.module.paclage2.PublicClassC;
+import sample.sampleModule.main.package2.PublicClassC;
 
 public class ProtectedClassB {
 	

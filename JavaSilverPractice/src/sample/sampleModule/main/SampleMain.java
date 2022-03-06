@@ -1,7 +1,7 @@
-package sample.module;
+package sample.sampleModule.main;
 
-import sample.module.paclage1.PublicClassA;
-import sample.module.paclage2.PublicClassC;
+import sample.sampleModule.main.package1.PublicClassA;
+import sample.sampleModule.main.package2.PublicClassC;
 
 public class SampleMain {
 

@@ -1,4 +1,4 @@
-package sample.module.paclage1;
+package sample.sampleModule.main.package1;
 
 public class ProtectedClassC {
 	
