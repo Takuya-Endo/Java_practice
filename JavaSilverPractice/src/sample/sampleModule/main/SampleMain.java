@@ -11,16 +11,16 @@ public class SampleMain {
 		classA.methodA();
 		
 //		ProtectedClassB classB = new ProtectedClassB();
-//		classB.methodB(); //protectedのため、Mainからはアクセス不可
-		classA.methodB(); //Aクラスでpublicに書き換えてオーバーライド
+//		classB.methodB(); //protected -> Main -> AccessNG
+		classA.methodB(); //A -> public (Override)
 
 //		ProtectedClassC classC = new ProtectedClassC();
-//		classC.methodC(); //protectedのため、Mainからはアクセス不可
-		classA.methodC_1(); //Bクラスでpublicの新しいメソッドを定義
+//		classC.methodC(); //protected -> Main -> AccessNG
+		classA.methodC_1(); //B -> public (NewMethod)
 
 		PublicClassC classC = new PublicClassC();
-		classC.methodC(); //publicのため、Mainからでもアクセス可能
-		classA.methodC_1(); //Bクラスでpublicの新しいメソッドを定義
+		classC.methodC(); //public -> Main -> AccessOK
+		classA.methodC_1(); //B -> public (NewMethod)
 		
 	}
 }
