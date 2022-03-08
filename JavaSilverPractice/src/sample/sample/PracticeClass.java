@@ -10,6 +10,53 @@ public class PracticeClass {
 		System.out.println(indexOf.indexOf("_a")); //二文字指定したら組み合わせがなければ「-1」
 		System.out.println(indexOf.indexOf("b")); //存在しなければ「-1」
 		
+		String stringSwitch = "switch";
+		switch (stringSwitch) {
+		case "switchA":
+			System.out.print("switchA ");
+		case "switchB":
+			System.out.print("switchB ");
+		default:
+			System.out.print("default ");
+		case "switchC":
+			System.out.print("switchC ");
+		case "switchD":
+			System.out.print("switchD ");
+		//default switchC switchD 
+		}
+		System.out.print("\n");
+		stringSwitch = "switchA";
+		switch (stringSwitch) {
+		case "switchA":
+			System.out.print("switchA ");
+		case "switchB":
+			System.out.print("switchB ");
+		default:
+			System.out.print("default ");
+		case "switchC":
+			System.out.print("switchC ");
+		case "switchD":
+			System.out.print("switchD ");
+		//switchA switchB default switchC switchD 
+		}
+		System.out.print("\n");
+		stringSwitch = "switchD";
+		switch (stringSwitch) {
+		case "switchA":
+			System.out.print("switchA ");
+		case "switchB":
+			System.out.print("switchB ");
+		default:
+			System.out.print("default ");
+		case "switchC":
+			System.out.print("switchC ");
+		case "switchD":
+			System.out.print("switchD ");
+		//switchD 
+		}
+		
+		
+		
 	}
 
 }
