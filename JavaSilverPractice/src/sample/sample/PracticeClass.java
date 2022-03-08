@@ -55,7 +55,17 @@ public class PracticeClass {
 		//switchD 
 		}
 		
+		System.out.print("\n");
+		int intA = 0;
+		System.out.println(intA++ + 1 + intA); //2
+		intA = 0;
+		System.out.println(++intA + 1 + intA); //3
 		
+//		intA = ++intA = 1 + intA = 0 ;
+//		System.out.println(++intA + 1 + intA); //
+		
+//		int intC; ローカル変数は初期化が必要
+//		System.out.println(intC); //使用しなければ定義だけならコンパイルエラーにはならない
 		
 	}
 
