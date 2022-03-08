@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class SampleMain {
 
 	public static void main(String[] args) {
-		
+
 		String ___ = "アンダースコアのみ識別子（変数名）";
 		System.out.println(___);
-		
+
 		SampleMain sampleMain = new SampleMain();
 		SampleClass sampleClass = new SampleClass("コンストラクタ");
 
@@ -21,12 +21,12 @@ public class SampleMain {
 		sampleMain.setClass(sampleClass); //オブジェクトが渡されると、参照がコピーされてわたるので、元のフィールドも書き換わる→Object objA = objBの挙動に近い？
 		System.out.println(sampleClass.num);
 		System.out.println(sampleClass.str);
-		
+
 		String strA = "TestA, TestB";
 		sampleMain.replaceStringA_1(strA); //Stringはimmutableオブジェクトのため置き換わらない。↑の例も参照
 		System.out.println(strA);
 		System.out.println(sampleMain.replaceStringA_2(strA)); //戻り値であれば、別のオブジェクトとしてclone？が作られる。（replaceAllメソッド）
-		
+
 		float valueA = 3.14f;
 		String valueB = "true";
 		System.out.println(valueA + " " + valueB);
@@ -37,7 +37,7 @@ public class SampleMain {
 		int valueD = 10;
 //		System.out.println(valueD += "20"); //これだけコンパイルエラー
 		System.out.println(valueD += 30);
-		
+
 		String valueE = null;
 //		valueE.equals("null"); //←ここではNullPointerException
 		System.out.println(valueE);
@@ -45,7 +45,7 @@ public class SampleMain {
 		System.out.println(valueF);
 		String valueG = valueE + valueF;
 		System.out.println(valueG);
-		
+
 		StringBuilder stringBuilderA = new StringBuilder();
 		System.out.println(stringBuilderA.capacity()); //16
 		StringBuilder stringBuilderB = new StringBuilder("ABCDE");
@@ -62,7 +62,7 @@ public class SampleMain {
 		StringBuilder stringBuilderD = new StringBuilder();
 		stringBuilderD.append("ABCDEFGHIJKLMNOPQ"); //17文字
 		System.out.println(stringBuilderD.capacity()); //34
-		
+
 		//拡張for文の中で生成されるのは一時変数であるため、そこに値を代入しても、元の配列の要素は書き換わらない。
 		SampleClass[] samples = {new SampleClass("A"), new SampleClass("B"), new SampleClass("C")};
 		for (SampleClass sample : samples) {
@@ -72,7 +72,7 @@ public class SampleMain {
 		for (SampleClass sample : samples) {
 			System.out.println(sample.str);
 		}
-		
+
 		SampleClass sampleA = new SampleClass();
 		SampleClass sampleB = new SubSampleClass();
 		SubSampleClass sampleC = new SubSampleClass();
@@ -83,7 +83,7 @@ public class SampleMain {
 		sampleB.printStr(); //親のフィールド
 		sampleC.printStr(); //親のフィールド
 		sampleC.printStrSub(); //子のフィールド
-		
+
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("A");
 		list.add("B");
@@ -91,11 +91,13 @@ public class SampleMain {
 		list.add("D");
 		for (String element : list) {
 			System.out.println(element);
-			list.remove("C"); //java.util.ConcurrentModificationException
+//			list.remove("C"); //java.util.ConcurrentModificationException
 		}
-		
+
+		PracticeClass.practice();
+
 	}
-	
+
 	private void setInt(int num) {
 		num += 10;
 	}
@@ -106,7 +108,7 @@ public class SampleMain {
 		sampleClass.num += 10;
 		sampleClass.str += "を書き換えました";
 	}
-	
+
 	private void replaceStringA_1(String str) {
 		str.replaceAll("TestA", "TestB");
 	}
