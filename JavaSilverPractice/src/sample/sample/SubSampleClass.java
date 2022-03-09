@@ -8,4 +8,8 @@ public class SubSampleClass extends SampleClass {
 		System.out.println(this.str);
 	}
 	
+	public void overrideMethod() {
+		System.out.println("Sub");
+	}
+	
 }

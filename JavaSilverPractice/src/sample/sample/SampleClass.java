@@ -30,5 +30,9 @@ public class SampleClass {
 	public void printStr() {
 		System.out.println(this.str);
 	}
+	
+	public void overrideMethod() {
+		System.out.println("Super");
+	}
 
 }

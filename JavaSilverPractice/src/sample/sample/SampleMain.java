@@ -83,7 +83,8 @@ public class SampleMain {
 		sampleB.printStr(); //親のフィールド
 		sampleC.printStr(); //親のフィールド
 		sampleC.printStrSub(); //子のフィールド
-
+		sampleB.overrideMethod(); //親の型でも湖でオーバーライドされていればコンストラクタで作られた方が使われる。-> "Sub"
+		
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("A");
 		list.add("B");
