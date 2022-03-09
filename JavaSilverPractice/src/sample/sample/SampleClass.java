@@ -35,4 +35,16 @@ public class SampleClass {
 		System.out.println("Super");
 	}
 
+	public void callPrivate() {
+		this.printPrivate();
+	}
+	
+	public void callPrivateOverride() {
+		this.printPrivate();
+	}
+	
+	private void printPrivate() {
+		System.out.println("PrivateSuper");
+	}
+	
 }

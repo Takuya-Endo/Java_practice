@@ -12,4 +12,12 @@ public class SubSampleClass extends SampleClass {
 		System.out.println("Sub");
 	}
 	
+	public void callPrivateOverride() {
+		this.printPrivate();
+	}
+	
+	private void printPrivate() {
+		System.out.println("PrivateSub");
+	}
+	
 }
