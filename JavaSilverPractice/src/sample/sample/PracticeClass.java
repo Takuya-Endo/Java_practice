@@ -1,5 +1,9 @@
 package sample.sample;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class PracticeClass {
 	
 	public static void practice() {
@@ -69,6 +73,16 @@ public class PracticeClass {
 		
 //		int intLocal; //ローカル変数は初期化が必要
 //		System.out.println(intC); //使用しなければ定義だけならコンパイルエラーにはならない
+		
+		List<String> mutableList = new ArrayList<String>();
+		mutableList.add("A");
+		System.out.println(mutableList.get(0));
+		List<String> immutableListA = Arrays.asList("A", "B", "C");
+//		immutableListA.add("D"); //java.lang.UnsupportedOperationException
+		System.out.println(immutableListA.get(0));
+		List<String> immutableListB = List.of("A", "B", "C");
+//		immutableListB.add("D"); //java.lang.UnsupportedOperationException
+		System.out.println(immutableListB.get(0));		
 		
 	}
 
