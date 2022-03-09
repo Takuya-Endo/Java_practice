@@ -61,10 +61,13 @@ public class PracticeClass {
 		intA = 0;
 		System.out.println(++intA + 1 + intA); //3
 		
-//		intA = ++intA = 1 + intA = 0 ;
-//		System.out.println(++intA + 1 + intA); //
+		int intB = 10;
+		int intC = intA + intB;
 		
-//		int intC; ローカル変数は初期化が必要
+		intA = intB = intC = intB++;
+		System.out.println(intA); //10
+		
+//		int intLocal; //ローカル変数は初期化が必要
 //		System.out.println(intC); //使用しなければ定義だけならコンパイルエラーにはならない
 		
 	}
