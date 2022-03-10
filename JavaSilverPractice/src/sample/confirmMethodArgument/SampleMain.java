@@ -8,8 +8,10 @@ public class SampleMain {
 		ArgumentObject object = new ArgumentObject();
 		
 		System.out.println(object);
-		method.changeObject(object);
+		System.out.println(object.stringField + ", " + object.intField);
+		method.changeObject(object); //メソッドに渡しているのは、箱(変数)ではなく「参照」
 		System.out.println(object);
+		System.out.println(object.stringField + ", " + object.intField);
 		
 	}
 }
