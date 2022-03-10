@@ -83,7 +83,7 @@ public class SampleMain {
 		sampleB.printStr(); //親のフィールド
 		sampleC.printStr(); //親のフィールド
 		sampleC.printStrSub(); //子のフィールド
-		sampleB.overrideMethod(); //親の型でも湖でオーバーライドされていればコンストラクタで作られた方が使われる。-> "Sub"
+		sampleB.overrideMethod(); //親の型でも子でオーバーライドされていればコンストラクタで作られた方が使われる。-> "Sub"
 		
 		sampleB.callPrivate(); //親クラスで定義されているメソッドを使っているだけなので、親のprivateメソッドが呼ばれる。
 		sampleB.callPrivateOverride(); //オーバーライドしているため子のprivateメソッドが呼ばれる。
