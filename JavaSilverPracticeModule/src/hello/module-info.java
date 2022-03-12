@@ -1,1 +1,5 @@
-module hello {}
+module hello {
+
+	requires foo;
+
+}
