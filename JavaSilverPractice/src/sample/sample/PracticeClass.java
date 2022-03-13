@@ -6,6 +6,13 @@ import java.util.List;
 
 public class PracticeClass {
 	
+//	private final String FINAL_FIELD = "FINAL_FIELD";
+	private final String FINAL_FIELD;
+	
+	public PracticeClass() {
+		this.FINAL_FIELD = "FINAL_FIELD";
+	}
+	
 	public static void practice() {
 		
 		String indexOf = "a_ _   _　_z";

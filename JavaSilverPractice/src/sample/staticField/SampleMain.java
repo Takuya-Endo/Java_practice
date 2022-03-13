@@ -20,7 +20,6 @@ public class SampleMain {
 //		SampleMain main = new SampleMain(5); //コンストラクタにすると前後でstaticの出力値が変わる→static初期価値を使わないと記述準によって値が変わる。
 		System.out.println(number);
 		
-		
 	}
 
 }

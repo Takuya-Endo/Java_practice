@@ -98,6 +98,19 @@ public class SampleMain {
 //			list.remove("C"); //java.util.ConcurrentModificationException
 		}
 
+		int[] arrayA = new int[] {}; //OK
+//		int[] arrayB = new int[5] {}; //NG
+//		int[] arrayC = new int[]; //NG
+		int[] arrayD = new int[5]; //OK
+
+		
+		Integer intA = new Integer(1);
+		Integer intB = Integer.valueOf(2);
+		Integer intC = 3;
+		int intD = 3;
+		Integer intE = intD;
+		int intF = intC;
+		
 		PracticeClass.practice();
 
 	}
