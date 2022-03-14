@@ -16,4 +16,14 @@ public class SampleA {
 		this.stringA = stringA;
 	}
 	
+	public boolean equals(SampleA sampleA) {
+		
+		if (this.stringA == sampleA.stringA) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
 }

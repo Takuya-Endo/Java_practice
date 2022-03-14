@@ -16,4 +16,20 @@ public class SampleB {
 		this.stringB = stringB;
 	}
 	
+	public boolean equals(Object object) {
+		
+		if (!(object instanceof SampleB)) {
+			return false;
+		}
+		
+		SampleB objectB = (SampleB) object;
+		
+		if (this.stringB == objectB.stringB) {
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
 }
