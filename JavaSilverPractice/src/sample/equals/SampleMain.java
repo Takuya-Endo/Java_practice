@@ -18,6 +18,12 @@ public class SampleMain {
 		
 		System.out.println(sampleA_1.equals(sampleA_2));
 		System.out.println(sampleB_1.equals(sampleB_2));
+
+		sampleA_2.setStringA("SampleA_1");
+		sampleB_2.setStringB("SampleB_1");
+		
+		System.out.println(sampleA_1.equals(sampleA_2));
+		System.out.println(sampleB_1.equals(sampleB_2));
 		
 	}
 	
