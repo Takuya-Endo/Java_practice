@@ -27,4 +27,14 @@ public class ImplementsAndFactory {
 		
 	}
 	
+	public static SampleInterface createStaticInnerClass() {
+//		return new ImplementsAndFactory().new SampleStaticInnerClass();
+		return new SampleStaticInnerClass(); //staticにすればこの書き方ができる。
+	}
+	private static class SampleStaticInnerClass implements SampleInterface {
+		public void publish() {
+			System.out.println("publish");
+		}
+	}
+	
 }
