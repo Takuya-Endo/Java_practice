@@ -3,6 +3,7 @@ package nestedClass;
 import nestedClass.sampleConcealment.ImplementsAndFactory;
 import nestedClass.sampleConcealment.SampleFactory;
 import nestedClass.sampleConcealment.SampleInterface;
+import nestedClass.sampleLocal.SampleLocalClass;
 
 public class Main {
 
@@ -32,6 +33,11 @@ public class Main {
 		SampleInterface sampleInnerImplementsB = ImplementsAndFactory.create();
 //		sampleInnerImplementsB.conceal();
 		sampleInnerImplementsB.publish();
+		
+		
+		//ローカルクラスの練習
+		SampleLocalClass sampleLocalClass = new SampleLocalClass();
+		sampleLocalClass.sampleMethod();
 		
 	}
 
