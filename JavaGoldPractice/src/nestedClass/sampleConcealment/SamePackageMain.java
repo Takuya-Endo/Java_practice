@@ -1,25 +1,21 @@
-package nestedClass;
+package nestedClass.sampleConcealment;
 
-import nestedClass.sampleConcealment.ImplementsAndFactory;
-import nestedClass.sampleConcealment.SampleFactory;
-import nestedClass.sampleConcealment.SampleInterface;
-
-public class Main {
+public class SamePackageMain {
 
 	public static void main(String[] args) {
-
 		
-//		SampleImplements sampleImplementsA = new SampleImplements();
-//		sampleImplementsA.conceal();
-//		sampleImplementsA.publish();
+		SampleImplements sampleImplementsA = new SampleImplements();
+		sampleImplementsA.conceal();
+		sampleImplementsA.publish();
 		//↑
 		//1. インターフェースとファクトリーを使うことで情報隠蔽されている。
+		//   が、同パッケージだと上の書き方でもアクセスできてしまう。
 		//↓
 //		SampleImplements sampleImplementsB = SampleFactory.create();
 		SampleInterface sampleImplementsB = SampleFactory.create();
 //		sampleImplementsB.conceal();
 		sampleImplementsB.publish();
-		
+	
 		
 //		SampleInnerImplements sampleInnerImplementsA = new SampleInnerImplements();
 //		sampleInnerImplementsA.conceal();

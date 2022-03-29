@@ -1,6 +1,6 @@
 package nestedClass.sampleConcealment;
 
-public class SampleImplements implements SampleInterface {
+/*public*/ class SampleImplements implements SampleInterface {
 	
 	//情報隠蔽したいメソッド
 	public void conceal() {
