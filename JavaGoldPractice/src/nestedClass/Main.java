@@ -3,6 +3,7 @@ package nestedClass;
 import nestedClass.sampleConcealment.ImplementsAndFactory;
 import nestedClass.sampleConcealment.SampleFactory;
 import nestedClass.sampleConcealment.SampleInterface;
+import nestedClass.sampleLocal.SampleAnonymousClass;
 import nestedClass.sampleLocal.SampleLocalClass;
 
 public class Main {
@@ -38,6 +39,10 @@ public class Main {
 		//ローカルクラスの練習
 		SampleLocalClass sampleLocalClass = new SampleLocalClass();
 		sampleLocalClass.sampleMethod();
+		
+		//匿名クラスの練習
+		SampleAnonymousClass sampleAnonymousClass = new SampleAnonymousClass();
+		sampleAnonymousClass.sampleMethod();
 		
 	}
 
