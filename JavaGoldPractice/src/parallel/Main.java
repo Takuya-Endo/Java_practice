@@ -6,9 +6,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		new SampleThread().start();
+		Runnable runnable = () -> { System.out.println("SubRunnable"); };
 		
-		System.out.println("main");
+		new SampleThread().start();
+		new Thread(runnable).start();
+		
+		System.out.println("Main");
 		
 	}
 	
