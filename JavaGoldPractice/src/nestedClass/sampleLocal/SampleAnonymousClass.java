@@ -2,6 +2,8 @@ package nestedClass.sampleLocal;
 
 public class SampleAnonymousClass {
 	
+	private SampleClass sampleClass;
+
 	public void sampleMethod() {
 		
 		//ローカルクラスを、どうせnewするだけという理由で匿名クラスに書き換えることはできない。
@@ -9,7 +11,7 @@ public class SampleAnonymousClass {
 		//そのためインターフェース実装や抽象クラスを継承したクラス等のみ匿名クラスとして使える。
 		
 //		SampleAbstractClass sampleExtends = new SampleAbstractClass();
-		SampleAbstractClass sampleExtends = new SampleAbstractClass() {
+		SampleAbstractClass sampleExtends = new /*AnonymousClassName  extends*/ SampleAbstractClass() {
 			@Override
 			public void abstractMethod() {
 				System.out.println("継承してオーバーライド");
@@ -17,7 +19,7 @@ public class SampleAnonymousClass {
 		};
 		
 //		SampleInterface sampleImplements = new SampleInterface();
-		SampleInterface sampleImplements = new SampleInterface() {
+		SampleInterface sampleImplements = new /*AnonymousClassName  implements*/ SampleInterface() {
 			@Override
 			public void abstractMethod() {
 				System.out.println("実装");
@@ -25,7 +27,24 @@ public class SampleAnonymousClass {
 		};
 		
 		sampleExtends.abstractMethod();
+		sampleExtends.anotherMethod();
 		sampleImplements.abstractMethod();
+		sampleImplements.anotherMethod();
+		
+		
+		SampleClass sample = new SampleClass("Field_A");
+		System.out.println(sample.getField());
+		SampleClass sampleSub = new /* SampleSubClass extends */ SampleClass("Field_B") {
+			String field;
+			{
+				this.field = super.getField() + "\n" + "Field_C";
+			}
+			@Override
+			public String getField() {
+				return this.field;
+			}
+		};
+		System.out.println(sampleSub.getField());
 		
 	}
 	
