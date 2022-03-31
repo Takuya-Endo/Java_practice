@@ -3,6 +3,7 @@ package nestedClass;
 import nestedClass.sampleConcealment.ImplementsAndFactory;
 import nestedClass.sampleConcealment.SampleFactory;
 import nestedClass.sampleConcealment.SampleInterface;
+import nestedClass.sampleEnum.SampleEnum;
 import nestedClass.sampleLocal.SampleAnonymousClass;
 import nestedClass.sampleLocal.SampleLocalClass;
 
@@ -43,6 +44,9 @@ public class Main {
 		//匿名クラスの練習
 		SampleAnonymousClass sampleAnonymousClass = new SampleAnonymousClass();
 		sampleAnonymousClass.sampleMethod();
+		
+		//Enumの練習
+		SampleEnum.print();
 		
 	}
 
