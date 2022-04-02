@@ -16,7 +16,7 @@ public class SampleExecutors {
 		//引数のタスクを実行する。
 		//引数はRunnnable（＝Threadクラスのrunメソッド）
 		
-		Runnable task = () -> {
+		Runnable task_1 = () -> {
 			long id = Thread.currentThread().getId();
 			System.out.print(id + " ");
 		};
@@ -24,29 +24,34 @@ public class SampleExecutors {
 		//①新しいスレッドを一つ生成
 //		ExecutorService executorService_1 = Executors.newSingleThreadExecutor();
 //		for (int i = 0; i < 5; i++) {
-//			executorService_1.submit(task);
+//			executorService_1.submit(task_1);
 //		}
 		
 		//②新しいスレッドを引数の数だけ生成（Fixed＝固定数）
 //		ExecutorService executorService_2 = Executors.newFixedThreadPool(3);
 //		for (int i = 0; i < 5; i++) {
-//			executorService_2.submit(task);
+//			executorService_2.submit(task_1);
 //		}
 		
 		//③新しいスレッドを必要に応じて生成
 //		ExecutorService executorService_3 = Executors.newCachedThreadPool();
 //		
 //		for (int i = 0; i < 5; i++) {
-//			executorService_3.submit(task);
+//			executorService_3.submit(task_1);
 //		}
+		
 		
 		//ScheduledExecutorServiceインターフェースのscheduleメソッドは、
 		//第一引数のタスクを、第二引数の時間（単位は第三引数）経過後に、実行する。
 		
 		//①新しいスレッドを一つ生成
 		ScheduledExecutorService scheduledExecutorService_1 = Executors.newSingleThreadScheduledExecutor();
+		Runnable task_2 = () -> {
+			System.out.println("finish");
+			scheduledExecutorService_1.shutdown();
+		};
 		for (int i = 0; i < 5; i++) {
-			scheduledExecutorService_1.schedule(task, 3, TimeUnit.SECONDS);
+			scheduledExecutorService_1.schedule(task_2, 3, TimeUnit.SECONDS);
 		}
 		
 	}
