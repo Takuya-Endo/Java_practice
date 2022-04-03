@@ -50,8 +50,22 @@ public class SampleExecutors {
 			System.out.println("finish");
 			scheduledExecutorService_1.shutdown();
 		};
-		for (int i = 0; i < 5; i++) {
-			scheduledExecutorService_1.schedule(task_2, 3, TimeUnit.SECONDS);
+		scheduledExecutorService_1.schedule(task_2, 3, TimeUnit.SECONDS);
+		int count = 0;
+		while (true) {
+			
+			try {
+			
+				Thread.sleep(100);
+				if (scheduledExecutorService_1.isShutdown()) {
+					break;
+				}
+				System.out.println((++count) * 100 + " ms");
+			
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
 		}
 		
 	}
