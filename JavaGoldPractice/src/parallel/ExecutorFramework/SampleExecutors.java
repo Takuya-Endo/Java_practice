@@ -44,23 +44,48 @@ public class SampleExecutors {
 		//ScheduledExecutorServiceインターフェースのscheduleメソッドは、
 		//第一引数のタスクを、第二引数の時間（単位は第三引数）経過後に、実行する。
 		
-		//①新しいスレッドを一つ生成
-		ScheduledExecutorService scheduledExecutorService_1 = Executors.newSingleThreadScheduledExecutor();
-		Runnable task_2 = () -> {
-			System.out.println("finish");
-			scheduledExecutorService_1.shutdown();
+		//①新しいスレッドを一つ生成 ※処理を1回だけ遅延実行
+//		ScheduledExecutorService scheduledExecutorService_1 = Executors.newSingleThreadScheduledExecutor();
+//		Runnable task_2 = () -> {
+//			System.out.println("finish");
+//			scheduledExecutorService_1.shutdown();
+//		};
+//		scheduledExecutorService_1.schedule(task_2, 3, TimeUnit.SECONDS);
+//		int count = 0;
+//		while (true) {
+//			
+//			try {
+//			
+//				Thread.sleep(100);
+//				if (scheduledExecutorService_1.isShutdown()) {
+//					break;
+//				}
+//				System.out.println((++count) * 100 + " ms");
+//			
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//			
+//		}
+		
+		//②新しいスレッドを一つ生成 ※終了するまで定期的に遅延実行
+		ScheduledExecutorService scheduledExecutorService_2 = Executors.newSingleThreadScheduledExecutor();
+		Runnable task_3 = () -> {
+			System.out.println("interrupt");
 		};
-		scheduledExecutorService_1.schedule(task_2, 3, TimeUnit.SECONDS);
+		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
 		int count = 0;
 		while (true) {
 			
 			try {
 			
 				Thread.sleep(100);
-				if (scheduledExecutorService_1.isShutdown()) {
+				System.out.println(">");
+				count++;
+				if (count == 50) {
+					scheduledExecutorService_2.shutdown();
 					break;
 				}
-				System.out.println((++count) * 100 + " ms");
 			
 			} catch (InterruptedException e) {
 				e.printStackTrace();
