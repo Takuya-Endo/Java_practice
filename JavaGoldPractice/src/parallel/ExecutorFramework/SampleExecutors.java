@@ -73,6 +73,7 @@ public class SampleExecutors {
 		Runnable task_3 = () -> {
 			System.out.println("interrupt");
 		};
+		//第二引数→初期遅延、第三引数→インターバル
 		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
 		int count = 0;
 		while (true) {
@@ -80,7 +81,7 @@ public class SampleExecutors {
 			try {
 			
 				Thread.sleep(100);
-				System.out.println(">");
+				System.out.print(">");
 				count++;
 				if (count == 50) {
 					scheduledExecutorService_2.shutdown();
