@@ -1,5 +1,6 @@
 package parallel.ExecutorFramework;
 
+import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -70,32 +71,36 @@ public class SampleExecutors {
 		
 		//②新しいスレッドを一つ生成 ※終了するまで定期的に遅延実行
 		ScheduledExecutorService scheduledExecutorService_2 = Executors.newSingleThreadScheduledExecutor();
-		Runnable task_3 = () -> {
-			System.out.println("interrupt");
-		};
+//		Runnable task_3 = () -> {
+//			System.out.println("interrupt");
+//		};
 		//第二引数→初期遅延、第三引数→インターバル
-		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
-		int count = 0;
-		while (true) {
-			
-			try {
-			
-				Thread.sleep(100);
-				System.out.print(">");
-				count++;
-				if (count == 50) {
-					scheduledExecutorService_2.shutdown();
-					break;
-				}
-			
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			
-		}
+//		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
+//		int count = 0;
+//		while (true) {
+//			
+//			try {
+//			
+//				Thread.sleep(100);
+//				System.out.print(">");
+//				count++;
+//				if (count == 50) {
+//					scheduledExecutorService_2.shutdown();
+//					break;
+//				}
+//			
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//			
+//		}
 		
+		Runnable task_4 = () -> {
+			int random = new Random().nextInt();
+			System.out.println(random);
+		};
 		//インターバルを一定にする
-		scheduledExecutorService_2.scheduleWithFixedDelay(task_3, 1, 1, TimeUnit.SECONDS);
+		scheduledExecutorService_2.scheduleWithFixedDelay(task_4, 1, 1, TimeUnit.SECONDS);
 		
 	}
 
