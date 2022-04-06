@@ -94,6 +94,9 @@ public class SampleExecutors {
 			
 		}
 		
+		//インターバルを一定にする
+		scheduledExecutorService_2.scheduleWithFixedDelay(task_3, 1, 1, TimeUnit.SECONDS);
+		
 	}
 
 }
