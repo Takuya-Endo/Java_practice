@@ -96,8 +96,13 @@ public class SampleExecutors {
 //		}
 		
 		Runnable task_4 = () -> {
-			int random = new Random().nextInt();
+			int random = new Random().nextInt(10);
 			System.out.println(random);
+			try {
+				Thread.sleep(random * 100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		};
 		//インターバルを一定にする
 		scheduledExecutorService_2.scheduleWithFixedDelay(task_4, 1, 1, TimeUnit.SECONDS);
