@@ -76,36 +76,38 @@ public class SampleExecutors {
 //		};
 		//第二引数→初期遅延、第三引数→インターバル
 //		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
-//		int count = 0;
-//		while (true) {
-//			
-//			try {
-//			
-//				Thread.sleep(100);
-//				System.out.print(">");
-//				count++;
-//				if (count == 50) {
-//					scheduledExecutorService_2.shutdown();
-//					break;
-//				}
-//			
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//			
-//		}
-		
+
 		Runnable task_4 = () -> {
 			int random = new Random().nextInt(10);
-			System.out.println(random);
+			System.out.print(random);
 			try {
 				Thread.sleep(random * 100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			System.out.println("interrupt");
 		};
 		//インターバルを一定にする
 		scheduledExecutorService_2.scheduleWithFixedDelay(task_4, 1, 1, TimeUnit.SECONDS);
+		
+		int count = 0;
+		while (true) {
+			
+			try {
+			
+				Thread.sleep(100);
+				System.out.print(">");
+				count++;
+				if (count == 50) {
+					scheduledExecutorService_2.shutdown();
+					break;
+				}
+			
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
 		
 	}
 
