@@ -74,7 +74,7 @@ public class SampleExecutors {
 //		Runnable task_3 = () -> {
 //			System.out.println("interrupt");
 //		};
-		//第二引数→初期遅延、第三引数→インターバル
+		//第二引数→初期遅延、第三引数→インターバル（処理とインターバルが同時にスタート＝処理の長さによりインターバルが一定にならない）
 //		scheduledExecutorService_2.scheduleAtFixedRate(task_3, 1, 1, TimeUnit.SECONDS);
 
 		Runnable task_4 = () -> {
@@ -85,9 +85,11 @@ public class SampleExecutors {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("interrupt");
+			System.out.println("interrupt(" + Thread.currentThread().getId() + ")");
 		};
-		//インターバルを一定にする
+		//第二引数→初期遅延、第三引数→インターバル（処理とインターバルが同時にスタート＝処理の長さによりインターバルが一定にならない）
+//		scheduledExecutorService_2.scheduleAtFixedRate(task_4, 1, 1, TimeUnit.SECONDS);
+		//第二引数→初期遅延、第三引数→インターバル（処理とインターバルが交互に挟まる＝インターバルが一定）
 		scheduledExecutorService_2.scheduleWithFixedDelay(task_4, 1, 1, TimeUnit.SECONDS);
 		
 		int count = 0;
