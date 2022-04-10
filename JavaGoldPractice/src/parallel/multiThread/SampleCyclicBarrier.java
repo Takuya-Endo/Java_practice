@@ -10,7 +10,6 @@ public class SampleCyclicBarrier {
 	private int count = 0;
 	public void doSomething01() {
 
-
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
 		
 		Runnable barrierAction = () -> System.out.println("3Thread");
@@ -18,8 +17,11 @@ public class SampleCyclicBarrier {
 		
 		Runnable task = () -> {
 			try {
-			
-				System.out.println("ID:" + Thread.currentThread().getId() + " COUNT:" + ++this.count);
+				
+				synchronized (this) { //このsynchronizedの有無で、countが順に加算されていくか、並列処理で実行ごとに変わるか、制御できる。
+					System.out.println("ID:" + Thread.currentThread().getId() + " COUNT:" + ++this.count);
+				}
+				
 				cyclicBarrier.await();
 			
 			} catch (InterruptedException | BrokenBarrierException e) {
