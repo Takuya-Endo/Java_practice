@@ -16,7 +16,8 @@ public class Main {
 //		
 //		new SampleExecutors().doSomething();
 		
-		new SampleFuture().doSomething01();
+//		new SampleFuture().doSomething01();
+		new SampleFuture().doSomething02();
 		
 	}
 	
