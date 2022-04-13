@@ -2,11 +2,13 @@ package parallel.multiThread;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class SampleAtomic {
 
 	private AtomicInteger atomicInteger;
 	private AtomicBoolean atomicBoolean;
+	private AtomicReference<String> atomicReferenceString;
 	
 //	private int count = 0;
 	public void doSomething01() {
