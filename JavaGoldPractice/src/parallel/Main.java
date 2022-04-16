@@ -1,6 +1,6 @@
 package parallel;
 
-import parallel.multiThread.SampleAtomic;
+import parallel.multiThread.SampleMultiThread;
 
 public class Main {
 
@@ -19,7 +19,9 @@ public class Main {
 //		new SampleFuture().doSomething01();
 //		new SampleFuture().doSomething02();
 //		new SampleCyclicBarrier().doSomething01();
-		new SampleAtomic().doSomething01();
+//		new SampleAtomic().doSomething01();
+		
+		new SampleMultiThread().doSomething01();
 		
 	}
 	
