@@ -6,4 +6,8 @@ public class SampleMultiThread {
 		// TODO Auto-generated method stub
 	}
 	
+	public void doSomething02() {
+		// TODO Auto-generated method stub
+	}
+	
 }
