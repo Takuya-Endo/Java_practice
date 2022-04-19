@@ -32,5 +32,17 @@ public class SampleJDBC {
 			}
 		}
 	}
+	
+	public void doSomething02() {
+		
+//		ij> connect 'jdbc:derby://localhost:1527/data/Sample;';
+		try (Connection connection = DriverManager.getConnection("jdbc:derby://localhost:1527/data/Sample")) {
+			
+			System.out.println(connection);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }
