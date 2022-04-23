@@ -6,7 +6,9 @@ public class Main {
 
 //		new SampleJDBC().doSomething01();
 //		new SampleJDBC().doSomething02();
-		new SampleJDBC().doSomething03();
+//		new SampleJDBC().doSomething03();
+//		new SampleJDBC().doSomething04();
+		new SampleJDBC().doSomething05();
 
 	}
 
