@@ -11,7 +11,10 @@ public class SampleLocale {
 		locale = Locale.getDefault();
 		System.out.println(locale.getLanguage() + ", " + locale.getCountry());
 		
-		locale = new Locale("en", "EN");
+		locale = new Locale("en", "EN"); //"EN"が間違っているが、例外は送出されない
+		System.out.println(locale.getLanguage() + ", " + locale.getCountry());
+		
+		locale = Locale.US;
 		System.out.println(locale.getLanguage() + ", " + locale.getCountry());
 		
 	}
