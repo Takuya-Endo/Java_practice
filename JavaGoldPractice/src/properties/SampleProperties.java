@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import java.util.Set;
 
 public class SampleProperties {
@@ -31,6 +32,15 @@ public class SampleProperties {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void doSomething02() {
+		
+		String basename = "sample";
+		ResourceBundle resourceBundle = ResourceBundle.getBundle(basename);
+		Set<String> set = resourceBundle.keySet();
+		set.stream().forEach(key -> System.out.println(key + "=" + resourceBundle.getString(key)));
+		
 	}
 	
 }
