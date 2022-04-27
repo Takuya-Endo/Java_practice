@@ -4,7 +4,7 @@ public class SampleAnonymousClass {
 	
 	private SampleClass sampleClass;
 
-	public void sampleMethod() {
+	public void doSomething01() {
 		
 		//ローカルクラスを、どうせnewするだけという理由で匿名クラスに書き換えることはできない。
 		//ローカルクラスが自作だった場合、名前がなくなるため、コンパイルエラーとなる。

@@ -43,7 +43,7 @@ public class Main {
 		
 		//匿名クラスの練習
 		SampleAnonymousClass sampleAnonymousClass = new SampleAnonymousClass();
-		sampleAnonymousClass.sampleMethod();
+		sampleAnonymousClass.doSomething01();
 		
 		//Enumの練習
 		SampleEnum.print();
