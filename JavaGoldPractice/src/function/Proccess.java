@@ -1,9 +1,10 @@
 package function;
 
 import java.util.function.BiPredicate;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class SomeMethods {
+public class Proccess {
 	
 	public void doSomething01() {
 		
@@ -34,6 +35,22 @@ public class SomeMethods {
 		} else {
 			System.out.println("FALSE");
 		}
+		
+	}
+	
+	public void doSomething02() {
+		
+		int number = 2;
+		
+		//↓同義：UnaryOperator<Integer>
+		Function<Integer, Integer> function01 = num -> num + 1;
+		Function<Integer, Integer> function02 = num -> num * 2;
+		
+		Function<Integer, Integer> functionAndThen = num -> function01.andThen(function02).apply(num);
+		Function<Integer, Integer> functionCompose = num -> function01.compose(function02).apply(num);
+		
+		System.out.println(functionAndThen.apply(number));
+		System.out.println(functionCompose.apply(number));
 		
 	}
 
