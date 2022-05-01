@@ -3,7 +3,7 @@ package streamAPI.optional;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class Proccess {
+public class Process {
 
 	//Optionalインスタンス生成
 	public void doSomething01() {
