@@ -1,4 +1,4 @@
-package annotation;
+package annotation.annotationInterface;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,5 +7,8 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface NotNull {
+public @interface WordCount {
+	
+	int value();
+
 }
