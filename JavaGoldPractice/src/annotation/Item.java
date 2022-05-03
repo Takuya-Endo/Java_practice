@@ -1,13 +1,22 @@
 package annotation;
 
+import annotation.annotationInterface.Format;
+import annotation.annotationInterface.Hankaku;
 import annotation.annotationInterface.NotNull;
 import annotation.annotationInterface.WordCount;
 
 public class Item {
 
+	@Format(prefix="ID")
 	private String id;
-	@NotNull private String name;
-	@WordCount(3) private String nameKana;
+	
+	@NotNull
+	private String name;
+	
+	@WordCount(5)
+	@Hankaku
+	private String nameKana;
+	
 	private int price;
 	
 	public Item id(String id) {

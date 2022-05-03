@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import annotation.annotationInterface.Format;
+import annotation.annotationInterface.Hankaku;
 import annotation.annotationInterface.NotNull;
 import annotation.annotationInterface.WordCount;
 
@@ -20,6 +22,8 @@ public class Validator {
 		try {	
 			checkNotNullAnnotation();
 			checkWordCountAnnotation();
+			checkHankakuAnnotation();
+			checkFormat();
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
@@ -82,6 +86,63 @@ public class Validator {
 			}
 			
 			errorMessages.add("[ " + field.getName() + " ]フィールドは" + countString + "文字以下である必要があります。");
+			
+		}
+		
+	}
+	
+	private static void checkHankakuAnnotation() throws IllegalArgumentException, IllegalAccessException {
+		
+		Class clazz = object.getClass();
+		Field[] fields = clazz.getDeclaredFields();
+		
+		for (Field field : fields) {
+			
+			field.setAccessible(true);
+			Hankaku hankaku = field.getAnnotation(Hankaku.class);
+			
+			if (hankaku == null) {
+				continue;
+			}
+			
+			String fieldString = (String) field.get(object);
+			char[] characters = fieldString.toCharArray();
+			for (char character : characters) {
+				if (!(
+						(character <= '\u007e') ||
+						(character == '\u00a5') ||
+						(character == '\u203e') ||
+						(character >= '\uff61' && character <= '\uff9f')
+					)) {
+					errorMessages.add("[ " + field.getName() + " ]フィールドに全角文字が含まれています。");
+					break;
+				}
+			}
+			
+		}
+		
+	}
+	
+	private static void checkFormat() throws IllegalArgumentException, IllegalAccessException {
+		
+		Class clazz = object.getClass();
+		Field[] fields = clazz.getDeclaredFields();
+		
+		for (Field field : fields) {
+			
+			field.setAccessible(true);
+			Format format = field.getAnnotation(Format.class);
+			
+			if (format == null) {
+				continue;
+			}
+			
+			String fieldString = (String)field.get(object);
+			if (fieldString.startsWith(format.prefix())) {
+				continue;
+			}
+			
+			errorMessages.add("[ " + field.getName() + " ]フィールドは「" + format.prefix() + "」で始まる文字列である必要があります。");
 			
 		}
 		

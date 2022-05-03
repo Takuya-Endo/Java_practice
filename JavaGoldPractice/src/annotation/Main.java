@@ -9,9 +9,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Item item = new Item()
-				.id("")
+				.id("ABCDE")
 				.name(null)
-				.nameKana("名前半角カナ")
+				.nameKana("商品名半角カナ")
 				.price(0);
 		
 		List<String> errorMessages = Validator.validate(item);
