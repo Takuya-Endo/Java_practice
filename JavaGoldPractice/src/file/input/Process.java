@@ -1,10 +1,14 @@
 package file.input;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Process {
 	
@@ -35,6 +39,80 @@ public class Process {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void doSomething02() {
+		
+		System.out.print("入力待ち>>");
+		
+		//↓ バイトストリームを扱うInputStreamから、
+		InputStream inputStream = null;
+		//↓ 変換用のInputStreamReaderを経由して、
+		InputStreamReader inputStreamReader = null;
+		//↓ 文字ストリームを扱うBufferedReaderを取得
+		BufferedReader bufferedReader = null;
+		
+		try {
+			
+			inputStream = System.in; //inはInputStream型のstatic finalフィールド
+			//output ≠ System.out //outはOutputStreamでなくPrintStreamの点に注意。また、どちらもJVM起動と同時に開く。
+			
+			inputStreamReader = new InputStreamReader(inputStream); //変換用
+			bufferedReader = new BufferedReader(inputStreamReader); //変換
+			
+			System.out.println(bufferedReader.readLine());
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				bufferedReader.close();
+				inputStreamReader.close();
+				inputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	public void doSomething03() {
+		
+		System.out.print("入力待ち>>");
+		
+		//↓ バイトストリームを扱うInputStreamから、
+		InputStream inputStream = null;
+		//↓ 変換用のInputStreamReaderを経由して、
+		InputStreamReader inputStreamReader = null;
+		//↓ 文字ストリームを扱うBufferedReaderを取得
+		BufferedReader bufferedReader = null;
+		
+		try {
+			
+			//下3行を1行で書き換える
+			Console console = System.console();
+//			inputStream = System.in; //inはInputStream型のstatic finalフィールド
+//			inputStreamReader = new InputStreamReader(inputStream); //変換用
+//			bufferedReader = new BufferedReader(inputStreamReader); //変換
+			
+			//readLineで例外処理も不要になる
+			System.out.println(console.readLine());
+//			System.out.println(bufferedReader.readLine());
+			
+			
+//		} catch (IOException e) {
+//			e.printStackTrace();
+		} finally {
+			try {
+				bufferedReader.close();
+				inputStreamReader.close();
+				inputStream.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 
 }
