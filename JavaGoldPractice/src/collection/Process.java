@@ -48,5 +48,15 @@ public class Process {
 		System.out.println(result3);
 		
 	}
-
+	
+	public void doSomething02() {
+		
+		List list = new ArrayList();
+		list.add("test");
+		list.add(123);
+		list.add(new Item());
+		list.stream().forEach(System.out::println);
+		
+	}
+	
 }
