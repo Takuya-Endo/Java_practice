@@ -27,9 +27,9 @@ public class Process {
 			
 		//継承関係にある例外はマルチキャッチ不可（下の場合、Exceptionだけで子のSampleExceptionもcatchできる）
 //		} catch (SampleException | Exception e) {
-			
+		
 		} catch (SampleException | RuntimeException e) {
-			
+		
 		}
 		
 	}

@@ -49,5 +49,31 @@ public class Process {
 		System.out.println(collectorResult);
 		
 	}
+	
+	public void doSomething02() {
+		
+		Function<String, String> strFunction = (String str) -> str + str;
+		System.out.println(strFunction.apply("Test"));
+		
+		//ジェネリクスを利用するときにボクシングは使えない。
+//		Function<Integer, Integer> intFunction = (int num) -> num + num;
+		Function<Integer, Integer> intFunction = (Integer num) -> num + num;
+		System.out.println(intFunction.apply(5));
+		
+	}
+	
+	public void doSomething03() {
+		
+		//引数有の関数型インターフェースのジェネリクス無しは不可
+//		Function strFunction = (String str) -> str + str;
+//		Function strFunction = (str) -> str + str;
+		Function<String, String> strFunction = (String str) -> str + str;
+		System.out.println(strFunction.apply("Test"));
+		
+		//引数無しの関数型インターフェースはジェネリクス無しでもコンパイルエラーにならない
+		Supplier strSupplier = () -> "Test";
+		System.out.println(strSupplier.get());
+		
+	}
 
 }

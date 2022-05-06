@@ -8,7 +8,9 @@ public class Main {
 //		new Process().doSomething02();
 		
 		streamAPI.stream.Process process = new streamAPI.stream.Process();
-		process.doSomething01();
+//		process.doSomething01();
+//		process.doSomething02();
+		process.doSomething03();
 		
 	}
 
