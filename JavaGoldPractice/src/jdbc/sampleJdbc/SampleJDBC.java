@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SampleJDBC {
 	
@@ -157,6 +158,93 @@ public class SampleJDBC {
 			//preparedStatementは明示的に閉じる必要あり
 			//resultSetも明示的に閉じる必要あり
 			//ただし、preparedStatementが閉じられると、resultSetも同時に閉じる
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void doSomething07() {
+		
+		System.out.println("id" + "　" + "name");
+		String sql = "";
+		String arg = "";
+		
+//		↓サーバー起動
+//		>cd C:\Users\home\Tools\derby\db-derby-10.15.2.0-bin
+//		>java -jar lib/derbyrun.jar server start
+		
+		String cnnect = "jdbc:derby://localhost:1527/data/Sample";
+		try (Connection connection = DriverManager.getConnection(cnnect)) {
+			
+			System.out.println("---------------");
+			sql = "SELECT * FROM item";
+			try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+				ResultSet resultSet = preparedStatement.executeQuery();
+				while (resultSet.next()){
+					int id = resultSet.getInt(1);
+					String name = resultSet.getString(2);
+					System.out.println(" " + id + "　" + name);
+				}
+			}
+			
+			System.out.println("---------------");
+			sql = "SELECT * FROM item WHERE name = ?";
+			try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+				preparedStatement.setString(1, "sample");
+				ResultSet resultSet = preparedStatement.executeQuery();
+				while (resultSet.next()){
+					int id = resultSet.getInt(1);
+					String name = resultSet.getString(2);
+					System.out.println(" " + id + "　" + name);
+				}
+			}
+			
+			//PreparedStatementを使用せず、変数でSQL文に値を渡す
+			System.out.println("---------------");
+			arg = "'sample'";
+			sql = "SELECT * FROM item WHERE name = " + arg;
+			try (Statement statement = connection.createStatement()) {
+				boolean result = statement.execute(sql);
+				if (!result) return;
+				ResultSet resultSet = statement.executeQuery(sql);
+				while (resultSet.next()){
+					int id = resultSet.getInt(1);
+					String name = resultSet.getString(2);
+					System.out.println(" " + id + "　" + name);
+				}
+			}
+			
+			//Statementを使用すると、SQLインジェクションのリスク
+			System.out.println("---------------");
+			arg = "'sample' OR 1 = 1";
+			sql = "SELECT * FROM item WHERE name = " + arg;
+			try (Statement statement = connection.createStatement()) {
+				boolean result = statement.execute(sql);
+				if (!result) return;
+				ResultSet resultSet = statement.executeQuery(sql);
+				while (resultSet.next()){
+					int id = resultSet.getInt(1);
+					String name = resultSet.getString(2);
+					System.out.println(" " + id + "　" + name);
+				}
+			}
+			
+			System.out.println("---------------");
+			arg = "sample";
+			sql = "SELECT * FROM item WHERE name = " + arg;
+			try (Statement statement = connection.createStatement()) {
+				sql = "SELECT * FROM item WHERE name = " + statement.enquoteIdentifier(arg, true);
+				System.out.println(sql);
+				boolean result = statement.execute(sql);
+				if (!result) return;
+				ResultSet resultSet = statement.executeQuery(sql);
+				while (resultSet.next()){
+					int id = resultSet.getInt(1);
+					String name = resultSet.getString(2);
+					System.out.println(" " + id + "　" + name);
+				}
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
