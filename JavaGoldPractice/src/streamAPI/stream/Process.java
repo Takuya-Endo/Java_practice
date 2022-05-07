@@ -12,7 +12,9 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
+import java.util.function.ToDoubleFunction;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Process {
@@ -115,6 +117,23 @@ public class Process {
 		IntStream.generate(() -> new Random().nextInt(10))
 				.distinct().limit(10)
 				.forEach(element -> System.out.print(element + " "));
+		
+	}
+	
+	public void doSomething05() {
+		
+		double result = 0;
+		
+		IntStream intStream = IntStream.generate(() -> new Random().nextInt(10)).distinct().limit(10);
+		result = intStream.average().getAsDouble();
+		System.out.println(result);
+		
+		List<Integer> list = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+//		list.stream().average(); //通常のストリームにaverageメソッドは用意されていない
+		ToDoubleFunction<Integer> toDoubleFunction = number -> number;
+		Collector<Integer, ?, Double> collector = Collectors.averagingDouble(toDoubleFunction);
+		result = list.stream().collect(collector);
+		System.out.println(result);
 		
 	}
 

@@ -11,7 +11,8 @@ public class Main {
 //		process.doSomething01();
 //		process.doSomething02();
 //		process.doSomething03();
-		process.doSomething04();
+//		process.doSomething04();
+		process.doSomething05();
 		
 	}
 
