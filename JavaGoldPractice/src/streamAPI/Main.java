@@ -10,7 +10,8 @@ public class Main {
 		streamAPI.stream.Process process = new streamAPI.stream.Process();
 //		process.doSomething01();
 //		process.doSomething02();
-		process.doSomething03();
+//		process.doSomething03();
+		process.doSomething04();
 		
 	}
 

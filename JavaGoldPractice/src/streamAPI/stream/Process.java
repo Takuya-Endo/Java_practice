@@ -1,15 +1,19 @@
 package streamAPI.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
+import java.util.stream.IntStream;
 
 public class Process {
 	
@@ -73,6 +77,44 @@ public class Process {
 		//引数無しの関数型インターフェースはジェネリクス無しでもコンパイルエラーにならない
 		Supplier strSupplier = () -> "Test";
 		System.out.println(strSupplier.get());
+		
+	}
+	
+	public void doSomething04() {
+		
+		Random random = new Random();
+		int randomNumber = 0;
+		List<Integer> list = null;
+		
+		list = new ArrayList<Integer>();
+		while (true) {
+			
+			randomNumber = random.nextInt(10);
+			if (list.contains(randomNumber)) {
+				continue;
+			}
+			list.add(randomNumber);
+			if (list.size() >= 10) {
+				break;
+			}
+		}
+		list.stream().forEach(element -> System.out.print(element + " "));
+		
+		System.out.print("\n");
+		
+		IntSupplier intSupplier = () -> new Random().nextInt(10);
+		IntStream intStream = IntStream.generate(intSupplier).distinct().limit(10);
+		intStream.forEach(element -> System.out.print(element + " "));
+		
+		System.out.print("\n");
+		
+		IntStream.generate(() -> new Random().nextInt(10)).distinct().limit(10).forEach(element -> System.out.print(element + " "));
+		
+		System.out.print("\n");
+		
+		IntStream.generate(() -> new Random().nextInt(10))
+				.distinct().limit(10)
+				.forEach(element -> System.out.print(element + " "));
 		
 	}
 
