@@ -10,12 +10,14 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.IntSupplier;
 import java.util.function.Supplier;
 import java.util.function.ToDoubleFunction;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Process {
 	
@@ -133,6 +135,25 @@ public class Process {
 		ToDoubleFunction<Integer> toDoubleFunction = number -> number;
 		Collector<Integer, ?, Double> collector = Collectors.averagingDouble(toDoubleFunction);
 		result = list.stream().collect(collector);
+		System.out.println(result);
+		
+	}
+	
+	public void doSomething06() {
+		
+		IntStream intStream = IntStream.iterate(3, num -> num + 2).limit(5);
+		intStream.forEach(element -> System.out.print(element + " "));
+		
+	}
+	
+	public void doSomething07() {
+		
+		IntStream intStream = IntStream.iterate(9, num -> --num).limit(10);
+//		intStream.reduce((int num1, int num2) -> num1 + ", " + num2); //ちなみに引数にint型を明示できる（出来ないのは関数型インターフェースのジェネリクス省略したと時）
+		//↓reduceの引数はBinaryOperatorのため、連結して文字列として返せない→根本の原因はIntStream型で処理しているから→そこで変換
+		IntFunction<String> intFunction = (int num) -> String.valueOf(num);
+		Stream<String> stream = intStream.mapToObj(intFunction);
+		String result = stream.reduce((str1, str2) -> str1 + ", " + str2).get();
 		System.out.println(result);
 		
 	}
