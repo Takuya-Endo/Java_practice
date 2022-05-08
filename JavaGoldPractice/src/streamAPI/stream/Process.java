@@ -157,5 +157,20 @@ public class Process {
 		System.out.println(result);
 		
 	}
+	
+	public void doSomething08() {
+		
+		//Stream<Integer>とIntStreamの違い
+		
+		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+		int[] nums = {1, 2, 3, 4, 5};
+		
+		Stream<Integer> listStream = list.stream();
+		IntStream numsStream = Arrays.stream(nums);
+		
+		listStream.forEach((Integer arg) -> { System.out.print(arg + " "); });
+		numsStream.forEach((int arg) -> { System.out.print(arg + " "); });
+		
+	}
 
 }
