@@ -4,7 +4,7 @@ public enum SampleEnum {
 	
 	sampleA, sampleB("引数ありコンストラクタ"), sampleC;
 	
-	//上に列挙したものは、このクラス辞退のインスタンスとして自動生成される
+	//上に列挙したものは、このクラス自体のインスタンスとして自動生成される
 	//コンストラクタはprivateでないといけない
 	private SampleEnum() {
 		this.field = "デフォルトコンストラクタ";

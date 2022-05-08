@@ -172,5 +172,17 @@ public class Process {
 		numsStream.forEach((int arg) -> { System.out.print(arg + " "); });
 		
 	}
+	
+	public void doSomething09() {
+		
+		List<String> list = List.of("B", "A", "D", "E", "C");
+		
+		list.stream().forEach(str -> System.out.print(str + " "));
+		System.out.print("\n");
+		list.parallelStream().forEach(str -> System.out.print(str + " "));
+		System.out.print("\n");
+		list.parallelStream().forEachOrdered(str -> System.out.print(str + " "));
+		
+	}
 
 }
