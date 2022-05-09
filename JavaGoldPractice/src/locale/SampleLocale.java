@@ -41,4 +41,46 @@ public class SampleLocale {
 		
 	}
 	
+	public void doSomething03() {
+		
+		DateTimeFormatter dateTimeFormatter = null;
+		String now = "";
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		
+		Locale locale = Locale.US;
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).withLocale(locale);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(locale);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+	}
+	
 }
