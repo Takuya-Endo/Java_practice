@@ -83,4 +83,24 @@ public class SampleLocale {
 		
 	}
 	
+	public void doSomething04() {
+		
+		Locale locale = new Locale.Builder()
+				.setLanguage("en")
+				.setRegion("US")
+				.build();
+		
+		DateTimeFormatter dateTimeFormatter = null;
+		String now = "";
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale);
+		now = dateTimeFormatter.format(LocalDate.now());
+		System.out.println(now);
+		
+	}
+	
 }
