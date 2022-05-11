@@ -15,6 +15,9 @@ public class Main {
 		ItemInterface item02 = ItemInterface.createItem(process.doAltConstructor());
 		process.printInfomation(item02);
 		
+		ItemInterface item03 = process.createItemUsingBuilder();
+		process.printInfomation(item03);
+		
 	}
 
 }
