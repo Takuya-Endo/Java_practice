@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class SampleLocale {
 
@@ -100,6 +101,36 @@ public class SampleLocale {
 		dateTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale);
 		now = dateTimeFormatter.format(LocalDate.now());
 		System.out.println(now);
+		
+	}
+	
+	public void doSomething05() {
+		
+		String country = "";
+		ResourceBundle resourceBundle = null;
+		
+		resourceBundle = ResourceBundle.getBundle("LocaleInfo");
+		country = resourceBundle.getString("country");
+		System.out.println(country); //Japan
+		
+//		resourceBundle = ResourceBundle.getBundle("LocaleInfo");
+//		country = resourceBundle.getString("aaaaaaaaa");
+//		System.out.println(country); //java.util.MissingResourceException
+		
+		resourceBundle = ResourceBundle.getBundle("LocaleInfo", Locale.US);
+		country = resourceBundle.getString("country");
+		System.out.println(country); //America
+		
+		//LocaleInfo.propertiesのないよう(unknown)を表示させるには、
+		//デフォルトを変える必要がある？
+		resourceBundle = ResourceBundle.getBundle("LocaleInfo", Locale.FRANCE);
+		country = resourceBundle.getString("country");
+		System.out.println(country); //Japan
+		
+		Locale locale = new Locale.Builder().setLanguage("fr").setRegion("FR").build();
+		resourceBundle = ResourceBundle.getBundle("LocaleInfo", locale);
+		country = resourceBundle.getString("country");
+		System.out.println(country); //Japan
 		
 	}
 	
