@@ -1,5 +1,8 @@
 package lambda;
 
+import java.util.Iterator;
+import java.util.ServiceLoader;
+
 import lambda.invisible.ItemInterface;
 import lambda.invisible.Process;
 
@@ -17,6 +20,18 @@ public class Main {
 		
 		ItemInterface item03 = process.createItemUsingBuilder();
 		process.printInfomation(item03);
+		
+		
+		
+		ServiceLoader<ItemInterface> serviceLoader = ServiceLoader.load(ItemInterface.class);
+		Iterator<ItemInterface> iterator = serviceLoader.iterator();
+		
+		while (iterator.hasNext()) {
+			ItemInterface item04 = iterator.next();
+//			ItemInterface item04 = itemInterface.createItem(process.doAltConstructor());
+			process.printInfomation(item04);
+		}
+		
 		
 	}
 
