@@ -9,9 +9,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.FileVisitResult;
+import java.nio.file.FileVisitor;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.function.BiPredicate;
 import java.util.stream.Stream;
@@ -149,5 +152,48 @@ public class Process {
 		
 	}
 	
+	public void doSomething06() {
+		
+		FileVisitor<Path> visitor = new SimpleFileVisitor<Path>() {
+			
+			private int fileLevel = 0;
+			
+			@Override
+			public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+				String space = "";
+				for (int i = 0; i < this.fileLevel; i++) {
+					space += "   ";
+				}
+				System.out.println(space + "∟" + dir.getFileName() + "\n" + space + space + "|");
+				this.fileLevel++;
+				return FileVisitResult.CONTINUE;
+			}
+			
+			@Override
+			public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+				this.fileLevel--;
+				return FileVisitResult.CONTINUE;
+			}
+			
+			@Override
+			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+				String space = "";
+				for (int i = 0; i < this.fileLevel; i++) {
+					space += "    ";
+				}
+				System.out.println(space + "∟" + file.getFileName());
+				return FileVisitResult.CONTINUE;
+			}
+		};
+		
+		try  {
+			
+			Path path = Files.walkFileTree(Paths.get("src"), visitor);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 }
