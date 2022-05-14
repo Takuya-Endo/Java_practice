@@ -9,6 +9,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.function.BiPredicate;
+import java.util.stream.Stream;
 
 public class Process {
 	
@@ -114,5 +120,34 @@ public class Process {
 		}
 		
 	}
+	
+	public void doSomething04() {
+		
+		Path path = Paths.get("src");
+		try (Stream<Path> pathStream = Files.walk(path)) {
+			
+			pathStream.forEach(System.out::println);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void doSomething05() {
+		
+		BiPredicate<Path, BasicFileAttributes> matcher = (argPath, basicFileAttributes) -> argPath.toString().contains("file");
+		
+		Path path = Paths.get("src");
+		try (Stream<Path> pathStream = Files.find(path, 5, matcher)) {
+			
+			pathStream.forEach(System.out::println);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 }
