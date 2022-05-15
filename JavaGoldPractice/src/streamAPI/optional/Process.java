@@ -1,5 +1,6 @@
 package streamAPI.optional;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -44,6 +45,20 @@ public class Process {
 		
 		Optional<String> test = Optional.of("test");
 		test.ifPresent(consumer);
+		
+	}
+	
+	public void doSomething03() {
+		
+		var list = List.of("A", "B", "C", "D", "E");
+		
+		Optional<String> result = list.stream()
+				.filter(str -> str.contains("Z"))
+				.reduce((arg1, arg2) -> arg1 + ", " + arg2);
+		
+		System.out.println(result);
+		result.ifPresent(System.out::println); //出力なし
+		System.out.println(result.isPresent());
 		
 	}
 

@@ -6,6 +6,7 @@ public class Main {
 		
 //		new Proccess().doSomething01();
 //		new Process().doSomething02();
+		new streamAPI.optional.Process().doSomething03();
 		
 		streamAPI.stream.Process process = new streamAPI.stream.Process();
 //		process.doSomething01();
@@ -16,7 +17,7 @@ public class Main {
 //		process.doSomething06();
 //		process.doSomething07();
 //		process.doSomething08();
-		process.doSomething09();
+//		process.doSomething09();
 		
 	}
 
