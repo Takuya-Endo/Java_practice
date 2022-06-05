@@ -7,5 +7,9 @@ public class Director {
 	public Director(Builder builder) {
 		this.builder = builder;
 	}
+	
+	public void constract() {
+		this.builder.setPersonalInfo(1, "sampleA", 20, "Department");
+	}
 
 }
