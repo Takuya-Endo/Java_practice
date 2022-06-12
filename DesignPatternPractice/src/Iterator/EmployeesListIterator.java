@@ -1,7 +1,11 @@
 package Iterator;
 
 public class EmployeesListIterator implements Iterator {
-
+	
+	public EmployeesListIterator(EmployeesList employeesList) {
+		
+	}
+	
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
