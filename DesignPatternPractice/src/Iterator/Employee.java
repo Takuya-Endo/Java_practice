@@ -20,17 +20,21 @@ public class Employee {
 		return department;
 	}
 	
-	public void setId(int id) {
+	public Employee setId(int id) {
 		this.id = id;
+		return this;
 	}
-	public void setName(String name) {
+	public Employee setName(String name) {
 		this.name = name;
+		return this;
 	}
-	public void setAge(int age) {
+	public Employee setAge(int age) {
 		this.age = age;
+		return this;
 	}
-	public void setDepartment(String department) {
+	public Employee setDepartment(String department) {
 		this.department = department;
+		return this;
 	}
 	
 	@Override
