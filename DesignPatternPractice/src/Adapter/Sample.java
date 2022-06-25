@@ -2,8 +2,8 @@ package Adapter;
 
 public class Sample {
 	
-	public void doSomething02() {
-		System.out.println("Method02");
+	public void doSomething01() {
+		System.out.println("Method01" + "\n");
 	}
 
 }

@@ -2,6 +2,6 @@ package Adapter;
 
 public interface SampleInterface {
 	
-	public abstract void doSomething01();
+	public abstract void doSomething02();
 
 }
