@@ -12,6 +12,8 @@ public class Sample {
 	//重い初期化処理
 	public void runSlowInitializeMethod() {
 		
+		System.out.print("初期化中...");
+		
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
